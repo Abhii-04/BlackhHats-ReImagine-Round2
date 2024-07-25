@@ -36,9 +36,7 @@
 } 
 
 
-/* html {
-  color-scheme: dark;
-} */
+
 
  body {
   margin: 0;
@@ -48,16 +46,7 @@
   text-transform: uppercase; 
   min-height: 300vh; 
 } 
- /* body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #191c29;
-}   */
-    
+
  html,
   body {
   width: 100vw;
@@ -65,8 +54,6 @@
   font-family: "Acid Grotesk";
   }
   
-
-
 body {
     color: #eee;
     font-family: Poppins;
@@ -75,7 +62,7 @@ body {
       repeating-linear-gradient(to right, #2d2a44 0 1px, transparent 2px 200px),
       repeating-linear-gradient(to bottom, #2d2a44 0 1px, transparent 2px 200px),
       radial-gradient(at 50% 50%, #2d2a44, #1d1b34);
-  }
+}
   
 
 
@@ -167,10 +154,6 @@ body {
   z-index: 2;
 }
 
-/* .parallax__luna {
-  --parallax-speed: -20;
-  z-index: 3;
-} */
 
 .parallax__left {
   --parallax-speed: 30;
@@ -182,10 +165,6 @@ body {
   z-index: 5;
 }
 
-/* .parallax__rays {
-  --parallax-speed:0;
-  z-index: 3;
-}  */
 
 .parallax__foreground-front,
 .parallax__foreground-back {
@@ -438,9 +417,8 @@ model-viewer{
 
 
 
+
 /* CARD POP UP CODE STARTS HERE */
-
-
 
 
 
@@ -531,6 +509,8 @@ model-viewer{
   transform: translate3d(0%, -30%, 100px);
 }
 /* CARD POP UP CODE ENDS HERE */
+
+
 
 
 
@@ -701,7 +681,7 @@ model-viewer{
 
 
 
-
+/*DOT CANVAS CODE STARTS HERE  */
   
 
 ::-webkit-scrollbar {
@@ -794,7 +774,7 @@ h1.right {
   left: 0;
   pointer-events: none;
 }
-
+/*DOT CANVAS CODE ENDS HERE  */
 
 
 
@@ -855,6 +835,7 @@ h1.right {
 }
 
 /* FAQS CODE ENDS HERE */
+
 
 /* FOOTER CODE STARTS HERE */
 
