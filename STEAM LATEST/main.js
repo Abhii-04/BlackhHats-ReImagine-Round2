@@ -124,7 +124,7 @@ const sets = {
     quote: "..., I DID KIDNAP HIS WIFE!"
   },
   "cs2": {
-    bg: "assets/bg2.jpg",
+    bg: "assets/bg2.png",
     right: "assets/right.png",
     left: "assets/left.png",
     quote: "lol f**king novas."
@@ -200,4 +200,20 @@ setTimeout(()=>{updateQuote(sets[setNames[currentIndex-1]]["quote"])}, 2000);
 
 setTimeout(()=>{setInterval(cycleSets, 7000)}, 7000);
 
+const buttons = document.querySelectorAll('button');
+
+    buttons.forEach( button =>{
+        button.addEventListener('click',()=>{
+            const faq = button.nextElementSibling;
+            const icon = button.children[1];
+    
+            faq.classList.toggle('show');
+            icon.classList.toggle('rotate');
+        })
+    } )
+
+function toggleSection(sectionId) {
+   var section = document.getElementById(sectionId);
+   section.classList.toggle("show")
+    }
 
