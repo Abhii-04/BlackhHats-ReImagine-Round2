@@ -135,6 +135,3 @@ function toggleSection(sectionId) {
 
 
 
-// PARALLAX KA LEFT CHARACTER WITH THE AK 47 IS SHOWING AT THE END OF THE PAGE AFTER FOOTER TRYING TO FIX THAT USING JS
-// Function to disable scrolling
-
