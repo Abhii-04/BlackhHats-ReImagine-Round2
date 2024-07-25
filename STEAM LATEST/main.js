@@ -121,13 +121,13 @@ const sets = {
     bg: "assets/gta5/bg2.jpg",
     right: "assets/gta5/right.png",
     left: "assets/gta5/left.png",
-    quote: "..., I DID KIDNAP HIS WIFE!"
+    quote: "I RUN THIS CITY !"
   },
   "cs2": {
     bg: "assets/bg2.png",
     right: "assets/right.png",
     left: "assets/left.png",
-    quote: "lol f**king novas."
+    quote: "The Bomb Has Been Planted"
   },
   "littleNightmares": {
     bg: "assets/littleNightmares/bg2.jpg",
@@ -135,7 +135,7 @@ const sets = {
     left: "assets/littleNightmares/left.png",
     quote: "Little Nightmares, huge world."
   }
-  // Add more sets as needed
+  // Add more sets as needed[
 };
 
 // Array of set names in the order you want to iterate through
