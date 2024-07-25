@@ -105,7 +105,7 @@ var loader = document.getElementById("preloader");
 window.addEventListener("load", function () {
   setTimeout(function() {
     loader.style.display = "none";
-  }, 5000); // Hide the loader after 5 seconds
+  }, 2000); // Hide the loader after 2 seconds
 });
 
 // PRELOADER CODE ENDS HERE
