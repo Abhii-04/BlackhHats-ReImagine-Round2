@@ -1,5 +1,3 @@
-// CARAOUSEL CODE STARTS HERE
-
 var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,
@@ -19,13 +17,7 @@ var swiper = new Swiper(".mySwiper", {
     }
   
   });
-
-// CARAOUSEL CODE ENDS HERE
-
-
-
-// SPIDERMAN CODE STARTS HERE  
-
+  
 
 let banner = document.querySelector('.banner');
 let canvas = document.getElementById('dotsCanvas');
@@ -52,10 +44,33 @@ const drawDots = () => {
     ctx.fill();
   })
 }
-drawDots();
-banner.addEventListener('mousemove', (event) => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+const updateDotOpacity = () => {
+  const scrollTop = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const bannerTop = banner.getBoundingClientRect().top + scrollTop;
+  const bannerHeight = banner.offsetHeight;
+  const fadeStart = bannerTop - windowHeight;
+  const fadeEnd = bannerTop + bannerHeight;
+
+  dots.forEach(dot => {
+    if (scrollTop < fadeStart) {
+      dot.opacity = 0;
+    } else if (scrollTop > fadeEnd) {
+      dot.opacity = 0;
+    } else {
+      dot.opacity = Math.min(1, (scrollTop - fadeStart) / (bannerHeight + windowHeight));
+    }
+  });
+
   drawDots();
+};
+
+updateDotOpacity();
+
+function animateDots() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  updateDotOpacity(); 
 
   let mouse = {
     x: event.pageX - banner.getBoundingClientRect().left - window.scrollX,
@@ -73,7 +88,11 @@ banner.addEventListener('mousemove', (event) => {
       ctx.stroke();
     }
   });
-});
+}
+banner.addEventListener('mousemove', animateDots);
+
+
+
 banner.addEventListener('mouseout', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDots();
@@ -95,24 +114,91 @@ window.addEventListener('resize', () => {
   drawDots();
 })
 
-// SPIDERMAN CODE ENDS HERE
 
 
+const sets = {
+  "gta5": {
+    bg: "assets/gta5/bg2.jpg",
+    right: "assets/gta5/right.png",
+    left: "assets/gta5/left.png",
+    quote: "..., I DID KIDNAP HIS WIFE!"
+  },
+  "cs2": {
+    bg: "assets/bg2.png",
+    right: "assets/right.png",
+    left: "assets/left.png",
+    quote: "lol f**king novas."
+  },
+  "littleNightmares": {
+    bg: "assets/littleNightmares/bg2.jpg",
+    right: "assets/littleNightmares/right.png",
+    left: "assets/littleNightmares/left.png",
+    quote: "Little Nightmares, huge world."
+  }
+  // Add more sets as needed
+};
 
-// PRELOADER CODE STARTS HERE
+// Array of set names in the order you want to iterate through
+const setNames = Object.keys(sets);
+let currentIndex = 1;
 
-var loader = document.getElementById("preloader");
-window.addEventListener("load", function () {
-  setTimeout(function() {
-    loader.style.display = "none";
-  }, 2000); // Hide the loader after 2 seconds
-});
+function changeImageSet(setName) {
+  const set = sets[setName];
+  if (set) {
+    changeImageSrc('.parallax__bg', set.bg);
+    changeImageSrc('.parallax__right', set.right);
+    changeImageSrc('.parallax__left', set.left);
+    updateQuote(set.quote);
+  } else {
+    console.error('Set not found:', setName);
+  }
+}
 
-// PRELOADER CODE ENDS HERE
+function changeImageSrc(selector, newSrc) {
+  const image = document.querySelector(selector);
+  if (image) {
+    image.classList.add('hidden'); // Start fade out
+    setTimeout(() => {
+      image.src = newSrc; // Change the src value
+      image.onload = () => image.classList.remove('hidden'); // Fade in after loading
+    }, 1000); // Match this duration with CSS transition duration
+  }
+}
+
+function updateQuote(newQuote) {
+  const quoteElement = document.querySelector('.hero__title > h1');
+  if (quoteElement) {
+    quoteElement.innerHTML = '';
+    let index = 0;
+    let quote = newQuote;
+      if (index < quote.length) {
+        quoteElement.textContent += quote[index];
+        index++;
+        const interval = setInterval(() => {
+          quoteElement.innerHTML += newQuote[index];
+          index++;
+          if (index >= newQuote.length) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+    }
+}
+
+function cycleSets() {
+  const setName = setNames[currentIndex];
+  changeImageSet(setName);
+
+  // Move to the next set index, wrap around if necessary
+  currentIndex = (currentIndex + 1) % setNames.length;
+}
 
 
+setTimeout(()=>{updateQuote(sets[setNames[currentIndex-1]]["quote"])}, 2000);
 
-// FAQS DROP BUTTON JS
+// Set interval to cycle through the sets every 5 seconds
+
+setTimeout(()=>{setInterval(cycleSets, 7000)}, 7000);
 
 const buttons = document.querySelectorAll('button');
 
@@ -130,8 +216,4 @@ function toggleSection(sectionId) {
    var section = document.getElementById(sectionId);
    section.classList.toggle("show")
     }
-
-// FAQS DROP BUTTON CODE ENDS 
-
-
 
