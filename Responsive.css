@@ -1,0 +1,72 @@
+@media(max-width: 900px) {
+
+    body {
+    height: 100%;
+  }
+      
+      .container {
+      padding: 10em 0;
+      height: max-content;
+      }
+   
+      .cards {
+      flex-direction: column;
+      }
+  }
+@media (max-width: 768px) {
+  .swiper-slide {
+    max-width: 90%;
+  }
+
+  .swiper-slide>iframe {
+    height: 50%;
+    /* Adjust height for smaller screens */
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .contain {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .contain .social {
+    width: 1000px;
+    display: block;
+  }
+  .social h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .footer .col {
+    width: 33%;
+  }
+  .footer .col h1 {
+    font-size: 14px;
+  }
+  .footer .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .footer .col {
+    width: 100%;
+  }
+}
